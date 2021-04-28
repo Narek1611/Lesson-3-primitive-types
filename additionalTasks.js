@@ -60,3 +60,48 @@ if (null || (-1 && 1)) alert("third"); // ալերտը կաշխատի
 
 //Check the login
 //prompt chi toxum kirarem, asum a prompt is not defined
+
+//klorancman sxal
+
+//alert( 1.35.toFixed(1) ); // 1.4
+// but
+//alert( 6.35.toFixed(1) ); // 6.3
+//why?
+//որովհետև կետիկով թվերը, որ պահվում են 2ական համակարգով, այդ համակարգում անվերջ երկար թվեր են, ու իրականում գրված երևացող թվերից հետո գալիս են այլ թվեր, ու այդ թվերից կախված կլորացնելուց արժեքը փոխվում է
+//How can we fix the problem with 6.35 if we want it to be rounded the right way?
+console.log((6.35 * 10).toFixed(20)); // ktpi 63.50000000000000000000, vorovhetev 0.5-y chi popoxvum 2akan hamakargum
+// hima vor stananq 6.35-i jisht kloracum mi tvanshanov, kanenq ayspes
+console.log(Math.round(6.35 * 10) / 10); // math.roundi mej kmna 63.5, durs kga 64, 64n el bajanac 10i kstacvi 6.4, inchn el mez petq e
+
+//arajin tari mecatar sarqel
+//menq chenq karox popoxel stringy qani vor ayn anpopoxeli e, ayd patjarov stexcum en nor string, vori arajin tary mer stringi arajin tarn e, bayc mecacrac, yev dran kpcnum enq naxnakan stringi 2rdic minchev verjin tarery
+let newStr = str[0].toUpperCase() + str.slice(1);
+
+//checkspam
+
+function checkSpam(str) {
+  let lowerStr = str.toLowerCase(); // mer stringy sarqum a poqratar
+
+  return lowerStr.includes("viagra") || lowerStr.includes("xxx"); // yete mer stringy parua=nakum a 'viagra', miangamic talis a true
+  //yete chi parunakum 'viagra', stugum a ardyoq parunakum a 'xxx', yete ayo, talis a true, yete voch, talis a false
+}
+
+alert(checkSpam("buy ViAgRA now"));
+alert(checkSpam("free xxxxx"));
+alert(checkSpam("innocent rabbit"));
+
+//stringi yerkarutyan sahmanapakum '...'ov
+
+function truncate(str, maxlength) {
+  //funkcian stanum a stringy u tuylatreli maximal yerkarutyuny
+  return str.length > maxlength //yete mer stringi yerkarutyuny mec a max-ic, apa stringi skzbic minchev tuylatreli yerkarutyun-1 vercnum a u koxqic grum a '...'
+    ? str.slice(0, maxlength - 1) + "…"
+    : str; // yete mer stringi yerkarutyuny mec chi max-ic, uxxaki tpum a stringy
+}
+
+//dolari nshani heracum
+
+function extractCurrencyValue(str) {
+  //stanum a mer $000 tipi stringy
+  return +str.slice(1); // veradarcnum a arajin nshany, aysinqn '$'-y hanac
+}
