@@ -1,3 +1,5 @@
+"use strict";
+
 let admin;
 let name;
 name = "John";
